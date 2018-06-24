@@ -1,0 +1,23 @@
+{
+  "name": "mws_restaurant_app_stage_1",
+  "version": "1.0.0",
+  "description": "---\r #### _Three Stage Course Material Project - Restaurant Reviews_",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manojkumaraut/mws-restaurant-stage-1.git"
+  },
+  "author": "Manoj Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manojkumaraut/mws-restaurant-stage-1/issues"
+  },
+  "homepage": "https://github.com/manojkumaraut/mws-restaurant-stage-1#readme"
+}
