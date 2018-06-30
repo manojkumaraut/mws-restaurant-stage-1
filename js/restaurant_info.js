@@ -81,10 +81,12 @@ fetchRestaurantFromURL = (callback) => {
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
-  name.innerHTML = restaurant.name;
+  const restaurantIcon ='<i class="fa fa-cutlery"></i>';
+  name.innerHTML =restaurantIcon + restaurant.name;
 
   const address = document.getElementById('restaurant-address');
-  address.innerHTML = restaurant.address;
+  const addressIcon ='<i class="fa fa-map-marker"></i>';
+  address.innerHTML = addressIcon + restaurant.address;
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
@@ -133,7 +135,8 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
-  title.innerHTML = 'Reviews';
+  const reviewsIcon ='<i class="fa fa-address-card"></i>';
+  title.innerHTML = reviewsIcon+ 'Reviews';
   container.appendChild(title);
 
   if (!reviews) {
@@ -155,15 +158,18 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 createReviewHTML = (review) => {
   const li = document.createElement('li');
   const name = document.createElement('p');
-  name.innerHTML = review.name;
+  const reviewName ='<i class="fa fa-user"></i>';
+  name.innerHTML = reviewName + review.name;
   li.appendChild(name);
 
   const date = document.createElement('p');
-  date.innerHTML = review.date;
+  const calenderIcon ='<i class="fa fa-calendar-o"></i>';
+  date.innerHTML =  calenderIcon + review.date;
   li.appendChild(date);
 
   const rating = document.createElement('p');
-  rating.innerHTML = `Rating: ${review.rating}`;
+  const ratingIcon ='<i class="fa fa-star"></i>';
+  rating.innerHTML = ratingIcon + `Rating: ${review.rating}`;
   rating.dataset.rating = review.rating;
   li.appendChild(rating);
 

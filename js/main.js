@@ -77,6 +77,7 @@ initMap = () => {
         zoom: 12,
         scrollWheelZoom: false
       });
+      
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
     mapboxToken: 'pk.eyJ1IjoibWFub2prdW1hcmoiLCJhIjoiY2ppaWZhenU5MGdvbTN1cGN4MDJmd3c4YiJ9.ZNaOan0Pe_gfXWsfphJ7Zg',
     maxZoom: 18,
@@ -157,7 +158,6 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
-
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
@@ -170,17 +170,20 @@ createRestaurantHTML = (restaurant) => {
   
   const div = document.createElement('div');
   div.className = "restaurant-info";
-
+ 
   const name = document.createElement('h2');
-  name.innerHTML = restaurant.name;
+  const restaurantIcon ='<i class="fa fa-cutlery"></i>';
+  name.innerHTML = restaurantIcon + restaurant.name;
   div.append(name);
 
   const neighborhood = document.createElement('p');
-  neighborhood.innerHTML = restaurant.neighborhood;
+  const neighbourhoodIcon ='<i class="fa fa-h-square"></i>';
+  neighborhood.innerHTML = neighbourhoodIcon + restaurant.neighborhood;
   div.append(neighborhood);
 
   const address = document.createElement('p');
-  address.innerHTML = restaurant.address;
+  const addressIcon ='<i class="fa fa-map-marker"></i>';
+  address.innerHTML = addressIcon + restaurant.address;
   div.append(address);
 
   li.append(div);

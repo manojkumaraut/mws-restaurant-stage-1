@@ -1,5 +1,4 @@
-const staticCacheName = 'restaurant-static-001';
-
+const staticCacheName = 'restaurant-static-002';
 self.addEventListener('install', event => {    
   event.waitUntil(
     caches.open(staticCacheName)
@@ -7,6 +6,7 @@ self.addEventListener('install', event => {
         return cache.addAll([
           '/index.html',
           '/css/styles.css',
+          '/css/font-awesome.min.css',
           '/js/dbhelper.js',
           '/js/registerServiceWorker.js',
           '/js/main.js',
@@ -22,6 +22,7 @@ self.addEventListener('install', event => {
           '/restaurant.html?id=8',
           '/restaurant.html?id=9',
           '/restaurant.html?id=10',
+          '/img/appoffline.png'
         ]).catch(error => {
           console.log('Caches open failed: ' + error);
         });
@@ -35,10 +36,13 @@ self.addEventListener('fetch', event => {
       caches.match(event.request).then(response => {
         return response || fetch(event.request);
       }).catch(error => {
-        return new Response('Not connected to the internet', {
-          status: 404,
-          statusText: "Not connected to the internet"
-        });
+        if (event.request.url.includes('.jpg')) {
+            return caches.match('/img/appoffline.png');
+          }
+          return new Response('Not connected to the internet', {
+            status: 404,
+            statusText: "Not connected to the internet"
+          });
         console.log(error, 'no cache entry for:', event.request.url);
       })
     );
