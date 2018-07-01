@@ -45,7 +45,6 @@ self.addEventListener('fetch', event => {
         return response || fetch(event.request).then(fetchResponse => {
             return caches.open(staticCacheName).then(cache => {
                 if(event.request.url.indexOf('http') === 0){
-                    console.log(event.request);
                     cache.put(event.request, fetchResponse.clone());
                 }
               return fetchResponse;
