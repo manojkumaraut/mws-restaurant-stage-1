@@ -1,6 +1,11 @@
 
 # Restaurant Reviews App - Stage 1 - Modified version
 
+- Download the repository
+- Use npm install command
+- run the command - "http-server"
+
+
 **Screenshot 1**
 ![alt text](https://github.com/manojkumaraut/mws-restaurant-stage-1/blob/master/screenshots/screenshot_2.jpg)
 
