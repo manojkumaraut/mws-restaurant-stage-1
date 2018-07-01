@@ -1,3 +1,6 @@
+/**
+ *   Registers the Service Worker
+ */
 if (navigator.serviceWorker) {
     navigator.serviceWorker.register('ServiceWorker.js')
     .then(registration => {

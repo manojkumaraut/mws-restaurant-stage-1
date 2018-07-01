@@ -1,4 +1,9 @@
-const staticCacheName = 'restaurant-static-002';
+// const staticCacheName = 'restaurant-static-002';
+
+/**
+ *   Install and Caching of Asset
+ */
+
 self.addEventListener('install', event => {    
   event.waitUntil(
     caches.open(staticCacheName)
@@ -30,6 +35,9 @@ self.addEventListener('install', event => {
   );
 });
 
+/**
+ *   Fetch event and Offline Caching 
+ */
 
 self.addEventListener('fetch', event => {
     event.respondWith(
@@ -47,6 +55,10 @@ self.addEventListener('fetch', event => {
       })
     );
   });
+
+/**
+ *   Static Cache Clear
+ */
 
   self.addEventListener('activate', event => {
     event.waitUntil(

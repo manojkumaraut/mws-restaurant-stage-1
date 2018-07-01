@@ -154,14 +154,14 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 }
 
 /**
- * Create restaurant HTML.
+ * Create restaurant HTML with srcset and font awesome Icons .
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.srcset = DBHelper.imageSrcsetForIndex(restaurant);
+  image.srcset = DBHelper.imageSrcsetForIndex(restaurant);             // added srcset
   image.sizes = "300px";
   const altText = restaurant.name + ' restaurant in ' + restaurant.neighborhood;
   image.title = altText;
@@ -172,17 +172,17 @@ createRestaurantHTML = (restaurant) => {
   div.className = "restaurant-info";
  
   const name = document.createElement('h2');
-  const restaurantIcon ='<i class="fa fa-cutlery"></i>';
+  const restaurantIcon ='<i class="fa fa-cutlery"></i>';  // added font awesome icons 
   name.innerHTML = restaurantIcon + restaurant.name;
   div.append(name);
 
   const neighborhood = document.createElement('p');
-  const neighbourhoodIcon ='<i class="fa fa-h-square"></i>';
+  const neighbourhoodIcon ='<i class="fa fa-h-square"></i>';      // added font awesome icons
   neighborhood.innerHTML = neighbourhoodIcon + restaurant.neighborhood;
   div.append(neighborhood);
 
   const address = document.createElement('p');
-  const addressIcon ='<i class="fa fa-map-marker"></i>';
+  const addressIcon ='<i class="fa fa-map-marker"></i>';    // added font awesome icons
   address.innerHTML = addressIcon + restaurant.address;
   div.append(address);
 

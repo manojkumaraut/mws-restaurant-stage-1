@@ -77,7 +77,7 @@ fetchRestaurantFromURL = (callback) => {
 }
 
 /**
- * Create restaurant HTML and add it to the webpage
+ * Create restaurant HTML and add it to the webpage and added responsive images rendering
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
@@ -92,6 +92,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.srcset = DBHelper.imageSrcsetForRestaurant(restaurant);
+  // Responsive images  
   image.sizes = "(max-width: 320px) 300px, (max-width: 425px) 400px, (max-width: 635px) 600px, (min-width: 636px) 400px";
   const altText = restaurant.name + ' restaurant in ' + restaurant.neighborhood;
   image.title = altText;
@@ -135,7 +136,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
-  const reviewsIcon ='<i class="fa fa-address-card"></i>';
+  const reviewsIcon ='<i class="fa fa-address-card"></i>';    // added font awesoem icons
   title.innerHTML = reviewsIcon+ 'Reviews';
   container.appendChild(title);
 
@@ -166,10 +167,15 @@ createReviewHTML = (review) => {
   const calenderIcon ='<i class="fa fa-calendar-o"></i>';
   date.innerHTML =  calenderIcon + review.date;
   li.appendChild(date);
-
+  
+  var ratingValue =review.rating;
+  let ratingIcon ='';
   const rating = document.createElement('p');
-  const ratingIcon ='<i class="fa fa-star"></i>';
-  rating.innerHTML = ratingIcon + `Rating: ${review.rating}`;
+  // dynamically generating of  rating star icons
+  for (var j = 1; j <= 5; j++) {
+    ratingIcon = ratingIcon +'<i class="fa fa-star' + ((j <= ratingValue) ? '' : ((j < ratingValue + 1) ? '-half-o' : '-o')) + '" aria-hidden="true"></i>';
+  }
+  rating.innerHTML = ratingIcon;
   rating.dataset.rating = review.rating;
   li.appendChild(rating);
 

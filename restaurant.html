@@ -2,12 +2,15 @@
 <html lang="en">
 
 <head>
+  <!-- Viewport and Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fav icon -->
   <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
-  <!-- Main CSS file -->
+  <!-- Main CSS file and Leaflet CSS -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+  <!-- Font file and Font awesome CSS -->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <title>Restaurant Info</title>
@@ -24,10 +27,7 @@
           <i class="fa fa-cutlery fa-stack-1x"></i>
         </span> Restaurant Reviews</a></h1>
     </nav>
-    <!-- Beginning breadcrumb -->
-   
-    <!-- End breadcrumb -->
-    <!-- End nav -->
+  <!-- End nav -->
   </header>
   <!-- End header -->
 
@@ -40,9 +40,11 @@
     <!-- End map -->
     <!-- Beginning restaurant -->
     <section id="restaurant-container" aria-labelledby="restaurant-name">
-        <ul id="breadcrumb" role="navigation" aria-label="breadcrumb" >
+    <!-- Beginning breadcrumb -->
+      <ul id="breadcrumb" role="navigation" aria-label="breadcrumb" >
             <li><a href="/">Home</a></li>
           </ul>
+   <!-- End breadcrumb -->
       <h1 id="restaurant-name"></h1>
       <img id="restaurant-img">
       <p id="restaurant-cuisine"></p>
