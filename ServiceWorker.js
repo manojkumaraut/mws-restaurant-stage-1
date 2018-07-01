@@ -1,4 +1,4 @@
-// const staticCacheName = 'restaurant-static-002';
+ const staticCacheName = 'restaurant-static-003';
 
 /**
  *   Install and Caching of Asset
@@ -42,7 +42,15 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
     event.respondWith(
       caches.match(event.request).then(response => {
-        return response || fetch(event.request);
+        return response || fetch(event.request).then(fetchResponse => {
+            return caches.open(staticCacheName).then(cache => {
+                if(event.request.url.indexOf('http') === 0){
+                    console.log(event.request);
+                    cache.put(event.request, fetchResponse.clone());
+                }
+              return fetchResponse;
+            });
+          });
       }).catch(error => {
         if (event.request.url.includes('.jpg')) {
             return caches.match('/img/appoffline.png');
